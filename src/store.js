@@ -1,24 +1,19 @@
 import { createStore } from 'vuex'
-import utils from '@/utils'
+import boardTemplate from './board-template'
+import { saveStatePlugin } from './utils'
+
+const board = JSON.parse(localStorage.getItem('board')) || boardTemplate
 
 export default createStore({
+  plugins:[saveStatePlugin],
   state: {
-    boards: [],
-    dataReady: false
+    board: board
   },
   getters: {
   },
   mutations: {
-    SET_BOARDS(state, boards) {
-      state['boards'] = boards
-    }
   },
   actions: {
-    fetchBoards({ commit }) {
-      Promise.all(utils.getBoardsPromises()).then((boards) => {
-        commit('SET_BOARDS', boards)
-      }); 
-    }
   },
   modules: {
   }
