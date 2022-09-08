@@ -10,6 +10,18 @@ export default createStore({
     board: board
   },
   getters: {
+    getTask(state) {
+      return (id) => {
+        for (const column of state.board.columns) {
+          for (const task of column.tasks) {
+            if (task.id === id) {
+              console.log('veva')
+              return task
+            }
+          }
+        }
+      }
+    }
   },
   mutations: {
   },

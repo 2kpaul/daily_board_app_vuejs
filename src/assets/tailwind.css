@@ -8,7 +8,7 @@
     @apply p-4 bg-teal-500 h-screen overflow-auto;
   }
 .task-bg {
-    @apply absolute;
+    @apply inset-0 absolute;
     background: rgba(0,0,0,0.5);
 }
 
@@ -19,4 +19,9 @@
 
 .task {
     @apply flex items-center flex-wrap shadow mb-2 py-2 px-2 rounded bg-white text-gray-800 no-underline;
-  }
+}
+
+.task-view {
+    @apply relative flex flex-row bg-white inset-0 mx-4 m-32 mx-auto py-4 text-left shadow rounded;
+    max-width: 700px;
+}

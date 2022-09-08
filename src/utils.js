@@ -5,6 +5,7 @@ export function uuid () {
 export function saveStatePlugin(store) {
     store.subscribe(
         (mutation, state) => {
+            console.log('loaded to storage')
             localStorage.setItem(
                 'board',
                  JSON.stringify(state.board)
