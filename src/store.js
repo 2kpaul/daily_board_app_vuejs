@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import boardTemplate from './board-template'
-import { saveStatePlugin } from './utils'
+import { saveStatePlugin, uuid } from './utils'
 
 const board = JSON.parse(localStorage.getItem('board')) || boardTemplate
 
@@ -15,7 +15,6 @@ export default createStore({
         for (const column of state.board.columns) {
           for (const task of column.tasks) {
             if (task.id === id) {
-              console.log('veva')
               return task
             }
           }
@@ -24,6 +23,16 @@ export default createStore({
     }
   },
   mutations: {
+    CREATE_TASK (state, { tasks, name }) {
+      tasks.push({
+        name,
+        id: uuid(),
+        description: ''
+      })
+    },
+    UPDATE_TASK(state, { task, key, value }) {
+        task[key] = value
+    }
   },
   actions: {
   },

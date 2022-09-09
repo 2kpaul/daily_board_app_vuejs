@@ -16,8 +16,13 @@
             <p class="w-full flex-shrink-0 mt-1 text-sm" v-if="task.description">
               {{ task.description }}
             </p>
-            
           </div>
+          <input 
+            type="text"
+            class="w-full block p-2 bg-transparent"
+            placeholder="+ Enter new task"
+            @keyup.enter="createTask($event, column.tasks)"
+          >
         </div>
       </div>
     </div>
@@ -47,6 +52,13 @@ export default {
     },
     close () {
       this.$router.push({ name: 'board' })
+    },
+    createTask(e, tasks) {
+      this.$store.commit('CREATE_TASK', {
+        tasks,
+        name: e.target.value
+      })
+      e.target.value = ''
     }
   }
 }
