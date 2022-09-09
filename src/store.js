@@ -36,6 +36,9 @@ export default createStore({
     MOVE_TASK(state, { fromTasks, toTasks, taskIndex }) {
       const taskToMove = fromTasks.splice(taskIndex, 1)[0]
       toTasks.push(taskToMove)
+    },
+    RESET_BOARD(state){
+      state.board = boardTemplate
     }
   },
   actions: {

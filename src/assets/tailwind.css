@@ -5,7 +5,12 @@
 @tailwind utilities;
 
 .board {
-    @apply p-4 bg-teal-500 h-screen overflow-auto;
+    @apply p-4 h-screen overflow-auto w-full
+    bg-gradient-to-r
+    from-cyan-500
+    via-pink-400
+    to-pink-300
+
   }
 .task-bg {
     @apply inset-0 absolute;
@@ -13,15 +18,37 @@
 }
 
 .column {
-    @apply bg-gray-200 p-2 mr-4 text-left shadow rounded;
+    @apply bg-gray-200/80 p-2 mr-4 text-left shadow rounded;
     min-width: 350px;
 }
 
 .task {
-    @apply flex items-center flex-wrap shadow mb-2 py-2 px-2 rounded bg-white text-gray-800 no-underline;
+    @apply flex items-center flex-wrap shadow mb-2 py-2 px-2 rounded bg-gray-100/90 text-gray-800 no-underline;
 }
 
 .task-view {
-    @apply relative flex flex-row bg-white inset-0 mx-4 m-32 mx-auto py-4 text-left shadow rounded;
+    @apply relative flex flex-row bg-gray-100 inset-0 mx-4 m-32 mx-auto py-4 text-left shadow rounded;
     max-width: 700px;
+}
+
+.background-animate {
+    background-size: 400%;
+
+    -webkit-animation: AnimationName 60s ease infinite;
+    -moz-animation: AnimationName 60s ease infinite;
+    animation: AnimationName 60s ease infinite;
+  }
+
+  @keyframes AnimationName {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+footer {
+  @apply fixed bottom-0 left-0 z-20 w-full
 }

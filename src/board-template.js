@@ -4,42 +4,26 @@ export default {
     name: 'daily board',
     columns: [
       {
-        name: 'todo',
+        name: 'Todo',
         tasks: [
           {
             description: 'test description',
-            name: 'first task',
+            name: 'fisrt task',
             id: uuid(),
             userAssigned: null
           },
-          {
-            description: '',
-            name: 'second task',
-            id: uuid(),
-            userAssigned: null
-          }
         ]
       },
       {
-        name: 'in-progress',
+        name: 'In progress',
         tasks: [
-          {
-            description: '',
-            name: 'first task',
-            id: uuid(),
-            userAssigned: null
-          }
+          
         ]
       },
       {
-        name: 'done',
+        name: 'Done',
         tasks: [
-          {
-            description: '',
-            name: 'first task',
-            id: uuid(),
-            userAssigned: null
-          }
+          
         ]
       }
     ]
