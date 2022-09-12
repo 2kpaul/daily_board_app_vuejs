@@ -10,7 +10,12 @@
         @dragenter.prevent
         @dragstart.self="pickupColumn($event, columnIndex)"
       >
-        <div class="flex items-center mb-2 font-bold">{{ column.name }}</div>
+        <div class="flex items-center mb-2 font-bold">
+          {{ column.name }}
+          <a href="#" @click.prevent="deleteColumn(columnIndex)" class="text-pink-600 hover:text-gray-900 dark:hover:text-white">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+          </a>  
+        </div>
         <div class="list-reset">
           <div class="task" 
             v-for="(task, taskIndex) in column.tasks" 
@@ -143,6 +148,11 @@ export default {
     createColumn() {
       this.$store.commit('CREATE_COLUMN', { name: this.columnName })
       this.columnName = ''
+    },
+    deleteColumn(columnIndex) {
+      if(confirm('Are you sure? all tasks from this list will be deleted!')){
+        this.$store.commit('DELETE_COLUMN', { columnIndex })   
+      }
     }
   }
 }
