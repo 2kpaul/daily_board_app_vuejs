@@ -45,6 +45,12 @@ export default createStore({
     },
     RESET_BOARD(state){
       state.board = boardTemplate
+    },
+    CREATE_COLUMN(state, { name }) {
+      this.state.board.columns.push({
+        name: name,
+        tasks: []
+      })
     }
   },
   actions: {

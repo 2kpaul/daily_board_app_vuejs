@@ -37,6 +37,15 @@
           >
         </div>
       </div>
+      <div class="column">
+        <input 
+            type="text"
+            class="w-full block p-2 bg-transparent border-0 focus:ring-teal-500"
+            placeholder="+ Create new list"
+            v-model="columnName"
+            @keyup.enter="createColumn()"
+          >
+      </div>
     </div>
     <div 
       class="task-bg"
@@ -61,6 +70,11 @@
 // @ is an alias to /src
 import { mapState } from 'vuex'
 export default {
+  data() {
+    return {
+      columnName: ''
+    }
+  },
   computed: {
     ...mapState(['board']),
     isTaskOpen() {
@@ -125,6 +139,10 @@ export default {
       if(confirm('Are you sure you want to reset board? All tasks will be deleted')){
         this.$store.commit('RESET_BOARD')        
       }
+    },
+    createColumn() {
+      this.$store.commit('CREATE_COLUMN', { name: this.columnName })
+      this.columnName = ''
     }
   }
 }
