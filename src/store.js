@@ -57,7 +57,11 @@ export default createStore({
     },
     DELETE_TASK(state, {fromTasks, taskIndex}) {
       fromTasks.splice(taskIndex, 1)
+    },
+    CLEAR_COLUMN(state, {columnTasks}) {
+      columnTasks.length = 0
     }
+      
   },
   actions: {
   },
