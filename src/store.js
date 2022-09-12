@@ -54,6 +54,9 @@ export default createStore({
     },
     DELETE_COLUMN(state, { columnIndex }) {
       state.board.columns.splice(columnIndex, 1)
+    },
+    DELETE_TASK(state, {fromTasks, taskIndex}) {
+      fromTasks.splice(taskIndex, 1)
     }
   },
   actions: {
