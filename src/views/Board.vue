@@ -1,6 +1,6 @@
 <template>
   <div class="board">
-    <div class="flex flex-row items-start">
+    <div class="flex flex-row items-start flex-wrap">
       <board-column
         v-for="(column, columnIndex) in board.columns"
         :key="columnIndex"
